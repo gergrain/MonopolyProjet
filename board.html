@@ -3,78 +3,104 @@
 <head>
 	<meta charset="utf-8">
     <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
-    <!--<script src="board.js"></script>-->
-    <style>
-    table{ border: 1px solid black;}
-    tr{ border: 4px solid black;}
+    <script>
+$(document).ready(function(){
+    $("img").each(function(i){
+        if($(this).attr('id')==='img_centre'){
+            
+        }else{
+            var name = 'img_zoom_image';
+            $("body").append("<div class='zoom' id='"+name+i+"' style='position:absolute; visibility:hidden; left:-286px; top:0px; z-index:1000;'><figure><img id='img_zoom_image' src='"+$(this).attr('src')+"'  /><figcaption>"+$(this).attr('title')+"</figcaption></figure></div>");
 
-</style>
+            var my_tooltip = $("#"+name+i);
+
+            $(this).mouseover(function(){
+                    my_tooltip.css({opacity:1, display:"none", visibility:"visible"}).fadeIn(0);
+            }).mousemove(function(kmouse){
+                    my_tooltip.css({left:kmouse.pageX+15, top:kmouse.pageY+15});
+            }).mouseout(function(){
+                    my_tooltip.fadeOut(0);
+            });
+        }
+	}); 
+    
+});
+
+    </script>
+    <style>
+
+    img{border: 3px solid black;}
+    #img_zoom_image {height: 175%;width: 175%;}
+    #zoom { position: absolute;top:100px;left:50px;border: 1px solid #333;background: #333;padding: 3px;display: none;color: #fff;}
+    figure{ border: 1px solid black;border-radius: 10px;text-align: center;background-color: black;color: white;}
+    </style>
+    
 	<title>Board</title>
 </head>
     <body>
         <div id="tableau">
             <table>
                 <tr>
-                    <td><img src="images/parkingGratuit.png"/></td>
-                    <td><img src="images/rouge.jpg"/></td>
-                    <td><img src="images/chanceHaute.jpg"   /></td>
-                    <td><img src="images/rouge.jpg"/></td>
-                    <td><img src="images/rouge.jpg"/></td>
+                    <td><img src="images/parkingGratuit.png" title="Parking gratuit"/></td>
+                    <td><img src="images/rouge1.jpg" title="Avenue Henri-Martin"/></td>
+                    <td><img src="images/chanceHaute.jpg" title="Chance"  /></td>
+                    <td><img src="images/rouge2.jpg"/></td>
+                    <td><img src="images/rouge3.jpg"/></td>
                     <td><img src="images/GareHaut.png"/></td>
-                    <td><img src="images/jaune.jpg"/></td>
-                    <td><img src="images/jaune.jpg"/></td>
+                    <td><img src="images/jaune3.jpg"/></td>
+                    <td><img src="images/jaune2.jpg"/></td>
                     <td><img src="images/water.jpg"/></td>
-                    <td><img src="images/jaune.jpg"/></td>
+                    <td><img src="images/jaune1.jpg"/></td>
                     <td><img src="images/gotoJail.jpg"/></td>
                 </tr>
                 <tr>
-                    <td><img src="images/Orange.png"/></td>
-                    <td colspan="9" rowspan="9"></td>
-                    <td><img src="images/vert.jpg"/></td>
+                    <td><img src="images/Orange1.png"/></td>
+                    <td colspan="9" rowspan="9"><img id="img_centre" src="images/centre.PNG" height="99%" width="99%"/></td>
+                    <td><img src="images/vert3.jpg"/></td>
                 </tr>
                 <tr>
-                    <td><img src="images/Orange.png"/></td>
-                    <td><img src="images/vert.jpg"/></td>
+                    <td><img src="images/Orange2.png"/></td>
+                    <td><img src="images/vert2.jpg"/></td>
                 </tr>
                 <tr>
                     <td><img src="images/Communaute.png"/></td>
                     <td><img src="images/CommunauteDroite.png"/></td>
                 </tr>
                 <tr>
-                    <td><img src="images/Orange.png"/></td>
-                    <td><img src="images/vert.jpg"/></td>
+                    <td><img src="images/Orange3.png"/></td>
+                    <td><img src="images/vert1.jpg"/></td>
                 </tr>
                 <tr>
                     <td><img src="images/Gare.png"/></td>
                     <td><img src="images/GareDroite.png"/></td>
                 </tr>
                 <tr>
-                    <td><img src="images/Rose.png"/></td>
-                    <td><img src="images/chanceDroite.jpg"/></td>
+                    <td><img src="images/Rose1.png"/></td>
+                    <td><img src="images/chanceDroite.png"/></td>
                 </tr>
                 <tr>
-                    <td><img src="images/Rose.png"/></td>
-                    <td><img src="images/bleufonc.jpg"/></td>
+                    <td><img src="images/Rose2.png"/></td>
+                    <td><img src="images/bleufonc2.PNG"/></td>
                 </tr>
                 <tr>
                     <td><img src="images/electric.png"/></td>
-                    <td><img src="images/taxe2.jpg"/></td>
+                    <td><img src="images/taxe2.PNG"/></td>
                 </tr>
                 <tr>
-                    <td><img src="images/Rose.png"/></td>
-                    <td><img src="images/bleufonc.jpg"/></td>
+                    <td><img src="images/Rose3.png"/></td>
+                    <td><img src="images/bleufonc1.jpg"/></td>
                 </tr>
                 <tr>
                     <td><img src="images/prison.png"/></td>
-                    <td><img src="images/bleuclair.jpg"/></td>
-                    <td><img src="images/bleuclair.jpg"/></td>
+                    <td><img src="images/bleuclair1.jpg"/></td>
+                    <td><img src="images/bleuclair2.jpg"/></td>
                     <td><img src="images/chance.jpg"/></td>
-                    <td><img src="images/bleuclair.jpg"/></td>
+                    <td><img src="images/bleuclair3.jpg"/></td>
                     <td><img src="images/GareBas.png"/></td>
                     <td><img src="images/taxe1.jpg"/></td>
-                    <td><img src="images/violet.jpg"/></td>
+                    <td><img src="images/violet1.jpg"/></td>
                     <td><img src="images/CommunauteBas.png"/></td>
-                    <td><img src="images/violet.jpg"/></td>
+                    <td><img src="images/violet2.jpg"/></td>
                     <td><img src="images/depart.jpg"/></td>
                 </tr>
             </table>
