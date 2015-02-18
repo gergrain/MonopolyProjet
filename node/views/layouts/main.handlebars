@@ -12,7 +12,7 @@ $(document).ready(function(){
             
         }else{
             var name = 'img_zoom_image';
-            $("body").append("<div id='"+name+i+"' style='position:absolute; visibility:hidden; left:-286px; top:0px; z-index:1000;'><figure><img class='img_zoom_image' src='"+$(this).attr('src')+"'  /><figcaption>"+$(this).attr('title')+"</figcaption></figure></div>");
+            $("body").append("<div id='"+name+i+"' style='position:absolute; visibility:hidden; left:-286px; top:0px; z-index:1000;'><figure><img class='img_zoom_image' src='"+$(this).attr('src')+"'/><figcaption>"+$(this).attr('title')+"</figcaption></figure></div>");
 
             var my_tooltip = $("#"+name+i);
 
@@ -29,38 +29,7 @@ $(document).ready(function(){
 });
 
     </script>
-    <style> 
-table {
-    border : 1px solid black;
-}
-td {
-    border: 1px solid black;
-}
-th {
-    border: 1px solid black;
-}
-
-
-img{
-    border: 1px solid black;
-    zoom : 40%;
-}
-
-.img_zoom_image{
-    height: 150%;
-    width: 150%;
-}
-
-    
-figure{
-    font-size: 150%;
-    border-radius: 10px;
-    text-align: center;
-    background-color: black;
-    color: white;
-}
-</style>
-    
+   
     
 	<title>Board</title>
 </head>
