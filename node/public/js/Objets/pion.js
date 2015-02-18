@@ -15,7 +15,13 @@ function Pion(color, joueur,img) {
 	}
 
 	this.goTo = function (position){
-		this.position = position
+		while(this.position != position){
+			this.position++;
+		}
+	}
+
+	this.goPrison = function(){
+		this.position = 10;
 	}
 
 }
