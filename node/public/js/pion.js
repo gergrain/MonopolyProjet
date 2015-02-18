@@ -6,7 +6,7 @@ function Pion(color, joueur,img) {
 	this.deplacer = function (des){
 		while(des != 0){
 			if (this.position =40){
-				this.position = 0
+				this.position = 0;
 			}else{
 				this.position ++;
 			}
@@ -24,4 +24,8 @@ function Pion(color, joueur,img) {
 		this.position = 10;
 	}
 
+}
+
+function deplacement(jeton){ /!jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
+    var positionActuelle = document.getElementById(jeton).parentElement.id;
 }
