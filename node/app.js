@@ -16,6 +16,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 // routes static, le routeur n'y aura pas accès
 app.use('/images',express.static(path.join(__dirname+ '/public/images')));
+app.use('/js',express.static(path.join(__dirname+ '/public/js')));
+app.use('/bootstrap',express.static(path.join(__dirname+ '/public/bootstrap')));
 
 app.use(cookieParser());
 
