@@ -38,7 +38,7 @@ hbs = handlebars.create({
 });
  
 app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.set('view engine', 'html');
 
 // chargement du routeur
 require('./router/router')(app); 
