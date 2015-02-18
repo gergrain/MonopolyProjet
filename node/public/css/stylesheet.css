@@ -1,0 +1,168 @@
+
+a {
+    color: #222222;
+    text-decoration: none;
+}
+a:visited {
+    color: #222222;
+    text-decoration: none;
+}
+body {
+    background-color: #222222;
+    color: black;
+    font-family: "Segoe UI",Verdana,serif;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+#header {
+    background-color: #222222;
+    border-bottom: 8px solid #444444;
+    box-shadow: 0 0 20px #000000;
+    height: 230px;
+    padding-bottom: 20px;
+    position: relative;
+    width: 100%;
+}
+#entete {
+    height: 230px;
+    margin: auto;
+    width: 1050px;
+}
+#logo {
+    float: left;
+    height: 192px;
+    margin-top: -96px;
+    position: relative;
+    top: 50%;
+    width: 205px;
+}
+#titre {
+    color: #cccccc;
+    float: left;
+    font-size: 32px;
+    font-weight: bold;
+    height: 50px;
+    left: 45px;
+    position: relative;
+    text-shadow: 1px 1px #111111, 2px 2px #000000;
+    top: 40px;
+    width: 800px;
+}
+#imLogo {
+    max-height: 100%;
+    max-width: 100%;
+}
+#LogoNode {
+    max-height: 50%;
+    max-width: 50%;
+}
+#connect {
+    background-color: #aaaaaa;
+    border: 4px solid #111111;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #000000 inset;
+    color: #222222;
+    font-size: 18px;
+    height: 50px;
+    padding: 10px;
+    position: absolute;
+    right: 30px;
+    text-align: center;
+    top: 65%;
+    width: 200px;
+}
+#connect a {
+    color: #222222;
+    font-weight: bold;
+    text-decoration: none;
+}
+#connect a *:visited {
+    color: #222222;
+    font-weight: bold;
+    text-decoration: none;
+}
+#corps {
+    background-color: #ededed;
+    float: left;
+    width: 100%;
+}
+#menu {
+    color: #222222;
+    float: left;
+    font-size: 15px;
+    margin-left: 3px;
+    min-height: 355px;
+    width: 20%;
+}
+#menu p {
+    font-weight: bold;
+}
+#menu a {
+    color: #222222;
+    text-decoration: none;
+}
+#menu a *:visited {
+    color: #222222;
+    text-decoration: none;
+}
+#menuInt {
+    margin-left: 50px;
+    margin-top: 2px;
+    min-height: 367px;
+}
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+td {
+    border: 1px solid black;
+}
+th {
+    background-color: #444444;
+    border: 1px solid black;
+    color: #cccccc;
+}
+#texte {
+    color: #222222;
+    float: left;
+    margin-left: 5px;
+    min-height: 380px;
+    text-align: center;
+    width: 79%;
+}
+#spacer {
+    clear: both;
+}
+#footer {
+    background-color: #222222;
+    border-top: 8px solid #444444;
+    bottom: 0;
+    box-shadow: 0 -5px 5px #858585;
+    color: #cccccc;
+    font-size: 12px;
+    height: 50px;
+    padding-top: 20px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+label {
+    font-size: 12pt;
+    font-weight: bold;
+}
+h1 {
+    text-shadow: 1px 1px 2px #333333;
+}
+* a:hover {
+    text-decoration: underline;
+}
+#menu a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+.centreImage {
+    padding: 20px;
+    width: 30%;
+}
