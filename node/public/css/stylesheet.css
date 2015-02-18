@@ -4,7 +4,7 @@ img{
 }
 
 .img_zoom_image{
-    zoom : 150%;
+    zoom : 125%;
 }
 
     
@@ -15,4 +15,8 @@ figcaption{
     color: white;
     padding: 3px;
     font-weight: bold;
+}
+
+td,tr,table{
+    border: 1px solid black;
 }
