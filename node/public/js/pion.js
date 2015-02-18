@@ -16,7 +16,7 @@ function Pion(color, joueur,img) {
 
 	this.goTo = function (position){
 		while(this.position != position){
-			this.position++;
+			this.deplacer(1);
 		}
 	}
 
