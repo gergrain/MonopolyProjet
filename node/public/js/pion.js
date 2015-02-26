@@ -26,6 +26,7 @@ function Pion(color, joueur,img) {
 
 }
 
-function deplacement(jeton){ /!jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
-    var positionActuelle = document.getElementById(jeton).parentElement.id;
+function deplacement(jeton, sommeDesDes){ /!jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
+    var positionActuelle = $('#'+jeton).parent().attr('id');
+    
 }
