@@ -1,7 +1,24 @@
 img{
     border: 1px solid black;
     zoom : 40%;
+
 }
+#JetonBleu,#JetonVert, #JetonRouge, #JetonJaune{
+    position: absolute;
+    top:20%;
+    left: 20%;
+    margin-left: 20%;
+    z-index:1000; 
+    border : none;
+    height:30px;
+    width:30px;
+    
+}
+
+#de1{
+    visibility: visible;
+}
+
 
 .img_zoom_image{
     zoom : 125%;

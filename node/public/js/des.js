@@ -6,16 +6,14 @@ function getNumber() {
         return randomnumber;
     }  
 
-
+var premierDeplacement;
 window.onload=function(){
     $("body").append("<div id='de1' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:350px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_1.png'/></div>");
     $("body").append("<div id='de2' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:300px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_1.png'/></div>");
+    premierDeplacement = true;
 
 }
 
-sommeDesDes;
-
-var sommeDesDes;
 
 function lancer(){
         de=Math.ceil(6*Math.random())
@@ -27,10 +25,8 @@ function lancer(){
     console.log(de+" + "+dede+" = "+(de+dede));
     var sommeDesDes = de+dede;
     
-    
     deplacement("JetonBleu", sommeDesDes);
 
-    sommeDesDes = de+dede;
 
  }
 
