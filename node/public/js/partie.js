@@ -7,7 +7,7 @@ function Partie() {
 		if(this.joueurs.length = 4 && !this.encours){
 			this.encours = true;
 			while(this.encours){
-				this.Jouer(this.joueurs[this.tours%4]);
+				this.Jouer(this.joueurs[this.tours%this.joueurs.length]);
 				this.tour = tour +1;
 			}
 		}else{
@@ -31,6 +31,14 @@ function Partie() {
 				}
 			}
 		}
+
+	this.JoueurLoose = function remove(looser) {
+      for(var i = arr.length; i--;) {
+          if(arr[i] === looser) {
+              arr.splice(i, 1);
+          }
+      }
+  	}
 
 
 	}
