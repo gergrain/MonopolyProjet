@@ -25,8 +25,8 @@ function Pion(color, joueur,img) {
 	}
 
 }
-deplacement(JetonBleu, 12);
-function deplacement(jeton, sommeDesDes){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
+
+function deplacement(jeton, sommeDes){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
     var positionActuelle = $('#'+jeton).parent().attr('id');
-    alert(positionActuelle);    
+    positionActuelle = parseInt(positionActuelle);
 }
