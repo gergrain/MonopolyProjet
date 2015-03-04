@@ -29,5 +29,11 @@ function Pion(color, joueur,img) {
 function deplacement(jeton, sommeDes){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
     var positionActuelle = $('#'+jeton).parent().attr('id');
     positionActuelle = parseInt(positionActuelle);
-    console.log(sommeDesDes);
+    var positionFinal = positionActuelle+sommeDes;
+    while(positionActuelle < positionFinal){
+        console.log(positionActuelle);
+        $('#'+jeton).clone().appendTo($('#'+positionActuelle));
+        $('#'+jeton).remove();
+        positionActuelle++;
+    }
 }
