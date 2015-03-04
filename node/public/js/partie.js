@@ -4,8 +4,14 @@ function Partie() {
 	this.joueurs= new Array (4);
 
 	this.lancerPartie = function(){
-		if(this.joueurs.length = 4){
+		if(this.joueurs.length = 4 && !this.encours){
 			this.encours = true;
+			while(this.encours){
+				this.Jouer(this.joueurs[this.tours%4]);
+				this.tour = tour +1;
+			}
+		}else{
+			console.log("Impossible de lancer la partie")
 		}
 		
 	}
@@ -14,8 +20,9 @@ function Partie() {
 		this.joueurs[this.joueurs.length]=newPlayer;
 	}
 
-	this.Jouer = function(){
+	this.Jouer = function(player){
 		fin =false;
+		console.log(player +" joue.")
 		while(!fin){
 			document.onkeydown = function (_event_){
 				var winObj = checkEventObj(_event)
