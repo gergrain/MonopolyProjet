@@ -31,12 +31,13 @@ function deplacement(jeton, sommeDes){ //jeton sous la forme de JetonXxxx Xxxx r
     positionActuelle = parseInt(positionActuelle);
     
     var positionFinal = positionActuelle+sommeDes;
-    
+    console.log(positionActuelle+" pA som "+sommeDes);
+    console.log(positionFinal+" pF");
     while(positionActuelle <= positionFinal){
-        var ouSeDeplacer = '#'+positionActuelle;
         var jetonPositionDepart = $('#'+jeton);
-        $('#'+jeton).clone().appendTo(ouSeDeplacer);
-        jetonPositionDepart.remove();
+        $('#'+jeton).remove();
+        jetonPositionDepart.appendTo($('#'+positionActuelle));
+  	
         positionActuelle++;
     }
 }
