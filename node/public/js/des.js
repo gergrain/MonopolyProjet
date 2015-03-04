@@ -9,7 +9,7 @@ function getNumber() {
 
 window.onload=function(){
     $("body").append("<div id='de1' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:350px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_1.png'/></div>");
-        $("body").append("<div id='de2' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:300px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_1.png'/></div>");
+    $("body").append("<div id='de2' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:300px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_1.png'/></div>");
 
 }
 
