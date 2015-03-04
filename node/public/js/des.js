@@ -6,8 +6,7 @@ function getNumber() {
         return randomnumber;
     }  
 
-<<<<<<< HEAD
-=======
+
 window.onload=function(){
     $("body").append("<div id='de1' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:350px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_1.png'/></div>");
         $("body").append("<div id='de2' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:300px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_1.png'/></div>");
@@ -17,7 +16,7 @@ window.onload=function(){
 sommeDesDes;
 
 var sommeDesDes;
->>>>>>> 0b96b606a374b2376595e594804d626e2085ca66
+
 function lancer(){
         de=Math.ceil(6*Math.random())
         dede=getNumber();
@@ -26,15 +25,13 @@ function lancer(){
         $("body").append("<div id='de1' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:350px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_"+de+".png'/></div>");
         $("body").append("<div id='de2' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:300px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_"+getNumber()+".png'/></div>");
     console.log(de+" + "+dede+" = "+(de+dede));
-<<<<<<< HEAD
     var sommeDesDes = de+dede;
     
     
     deplacement("JetonBleu", sommeDesDes);
-=======
+
     sommeDesDes = de+dede;
 
->>>>>>> 0b96b606a374b2376595e594804d626e2085ca66
  }
 
 
