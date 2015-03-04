@@ -1,3 +1,5 @@
+window.onload = Partie;
+
 function Partie() {
 	this.encours = false;
 	this.tour=0;
@@ -7,7 +9,7 @@ function Partie() {
 		if(this.joueurs.length = 4 && !this.encours){
 			this.encours = true;
 			while(this.encours){
-				this.Jouer(this.joueurs[this.tours%this.joueurs.length]);
+				this.Jouer(this.joueurs[this.tour%this.joueurs.length]);
 				this.tour = tour +1;
 			}
 		}else{
@@ -23,6 +25,7 @@ function Partie() {
 	this.Jouer = function(player){
 		fin =false;
 		console.log(player +" joue.")
+		document.getElementById("tour").value = player+"Joue.";
 		while(!fin){
 			document.onkeydown = function (_event_){
 				var winObj = checkEventObj(_event)
