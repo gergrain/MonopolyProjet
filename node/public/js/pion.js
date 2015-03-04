@@ -27,7 +27,6 @@ function Pion(color, joueur,img) {
 }
 
 function deplacement(jeton, sommeDes){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
-<<<<<<< HEAD
 
         var positionActuelle = $('#'+jeton).parent().attr('id');
         positionActuelle = parseInt(positionActuelle);
@@ -44,22 +43,6 @@ function deplacement(jeton, sommeDes){ //jeton sous la forme de JetonXxxx Xxxx r
       
     
 }
-=======
+
     
-    
-    /*var positionActuelle = $('#'+jeton).parent().attr('id');
-    positionActuelle = parseInt(positionActuelle);
-    
-    var positionFinal = positionActuelle+sommeDes;
-    console.log(positionActuelle+" pA som "+sommeDes);
-    console.log(positionFinal+" pF");
-    
-    while(positionActuelle <= positionFinal){
-       setTimeout( function(){var jetonPositionDepart = $('#'+jeton);
-        $('#'+jeton).remove();
-        jetonPositionDepart.appendTo($('#'+positionActuelle));
-  	
-        positionActuelle++;},500);*/
-    }
-}
->>>>>>> origin/master
+
