@@ -1,18 +1,16 @@
-#OBJET DE#
-function de(){
+     
+function getNumber() {
+        var minNumber = 1; // le minimum
+        var maxNumber = 5; // le maximum
+        var randomnumber = Math.floor(Math.random() * (maxNumber + 1) + minNumber); // la fonction magique
+        return randomnumber;
+    }  
 
-	ImgValeurs = [{id:1,img:"images/de_1.png"},
-					{id:2,img:"images/de_2.png"},
-					{id:3,img:"images/de_3.png"},
-					{id:4,img:"images/de_4.png"},
-					{id:4,img:"images/de_5.png"},
-					{id:4,img:"images/de_6.png"}]
-	this.valeur = 1;
-	this.img = "image/de_1.png";
+function lancer(){
+        de=Math.ceil(6*Math.random())
+        $("#de1").remove();
+        $("#de2").remove();
+        $("body").append("<div id='de1' style='position:absolute; visibility:visible; left:350px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_"+de+".png'/></div>");
+        $("body").append("<div id='de2' style='position:absolute; visibility:visible; left:300px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_"+getNumber()+".png'/></div>");
 
-	this.lancer = function(){
-		this.valeur = Math.floor(Math.random()*5+1);
-		this.img = ImgValeurs[this.valeur-1].img;
-	}
-
-}
+ }
