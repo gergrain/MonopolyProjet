@@ -25,12 +25,12 @@ function Pion(color, joueur,img) {
 	}
 
 }
-
+/*
 function deplacement(jeton, sommeDes){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
-
+        
+       
         var positionActuelle = $('#'+jeton).parent().attr('id');
         positionActuelle = parseInt(positionActuelle);
-
         var positionFinal = positionActuelle+sommeDes;
         while(positionActuelle <= positionFinal){
             if(positionActuelle==40){
@@ -38,12 +38,49 @@ function deplacement(jeton, sommeDes){ //jeton sous la forme de JetonXxxx Xxxx r
                 positionFinal = positionFinal - 40;
             }
             var ouSeDeplacer = '#'+(positionActuelle);
-            console.log("ou se déplacer : "+ouSeDeplacer+"| position actuelle : "+positionActuelle+"| position final :"+positionFinal);
             var jetonPositionDepart = $('#'+jeton);
             $('#'+jeton).clone().appendTo(ouSeDeplacer);
             jetonPositionDepart.remove();
             positionActuelle++;
+        }    
+}*/
+var positionActuelle;
+var positionFinal;
+var ouSeDeplacer;
+var jetonPositionDepart;
+var boll = true;
+
+function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
+    
+       
+    
+        positionActuelle = $('#JetonBleu').parent().attr('id');
+        positionActuelle = parseInt(positionActuelle)+1;
+console.log(positionActuelle);
+    if(boll==true)
+        positionFinal = positionActuelle-1+sommeDesDes;
+console.log(positionFinal);
+console.log(ouSeDeplacer);
+       if(positionActuelle==40){
+            positionActuelle=0;
+            positionFinal = positionFinal - 40;
         }
+    
+        ouSeDeplacer = '#'+(positionActuelle);
+        jetonPositionDepart = $('#JetonBleu');
+        $('#JetonBleu').clone().appendTo(ouSeDeplacer);
+        jetonPositionDepart.remove();
+        positionActuelle++;
+    boll=false;
+        
+        if(positionActuelle <= positionFinal){
+            setTimeout("deplacement()",1000);
+        }else{
+            boll=true;
+        }
+        
+
+        
       
     
 }
