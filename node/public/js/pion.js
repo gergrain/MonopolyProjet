@@ -33,6 +33,10 @@ function deplacement(jeton, sommeDes){ //jeton sous la forme de JetonXxxx Xxxx r
 
         var positionFinal = positionActuelle+sommeDes;
         while(positionActuelle <= positionFinal){
+            if(positionActuelle==40){
+                positionActuelle=0;
+                positionFinal = positionFinal - 40;
+            }
             var ouSeDeplacer = '#'+(positionActuelle);
             console.log("ou se déplacer : "+ouSeDeplacer+"| position actuelle : "+positionActuelle+"| position final :"+positionFinal);
             var jetonPositionDepart = $('#'+jeton);
