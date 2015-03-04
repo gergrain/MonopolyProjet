@@ -1,4 +1,14 @@
-window.onload = Partie;
+window.onload = function(){
+	partie=new Partie();
+	partie.ajouterJoueur(document.getElementById('JetonVert'))
+	partie.ajouterJoueur(document.getElementById('JetonBleu'))
+	partie.ajouterJoueur(document.getElementById('JetonJaune'))
+	partie.ajouterJoueur(document.getElementById('JetonRouge'))
+
+	partie.lancerPartie();
+}
+
+
 
 function Partie() {
 	this.encours = false;
