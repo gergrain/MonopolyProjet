@@ -27,17 +27,20 @@ function Pion(color, joueur,img) {
 }
 
 function deplacement(jeton, sommeDes){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
-    var positionActuelle = $('#'+jeton).parent().attr('id');
+    
+    
+    /*var positionActuelle = $('#'+jeton).parent().attr('id');
     positionActuelle = parseInt(positionActuelle);
     
     var positionFinal = positionActuelle+sommeDes;
     console.log(positionActuelle+" pA som "+sommeDes);
     console.log(positionFinal+" pF");
+    
     while(positionActuelle <= positionFinal){
-        var jetonPositionDepart = $('#'+jeton);
+       setTimeout( function(){var jetonPositionDepart = $('#'+jeton);
         $('#'+jeton).remove();
         jetonPositionDepart.appendTo($('#'+positionActuelle));
   	
-        positionActuelle++;
+        positionActuelle++;},500);*/
     }
 }
