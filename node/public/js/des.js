@@ -5,7 +5,7 @@ function getNumber() {
         var randomnumber = Math.floor(Math.random() * (maxNumber + 1) + minNumber); // la fonction magique
         return randomnumber;
     }  
-sommeDesDes;
+var sommeDesDes;
 function lancer(){
         de=Math.ceil(6*Math.random())
         dede=getNumber();
