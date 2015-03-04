@@ -23,7 +23,7 @@ function lancer(){
         $("#de1").remove();
         $("#de2").remove();
         $("body").append("<div id='de1' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:350px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_"+de+".png'/></div>");
-        $("body").append("<div id='de2' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:300px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_"+getNumber()+".png'/></div>");
+        $("body").append("<div id='de2' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:300px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_"+dede+".png'/></div>");
     console.log(de+" + "+dede+" = "+(de+dede));
     var sommeDesDes = de+dede;
     
