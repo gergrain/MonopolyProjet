@@ -14,6 +14,7 @@ window.onload=function(){
 
 sommeDesDes;
 
+var sommeDesDes;
 function lancer(){
         de=Math.ceil(6*Math.random())
         dede=getNumber();
