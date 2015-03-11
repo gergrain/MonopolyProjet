@@ -43,8 +43,9 @@ function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la cou
             if(positionActuelle==40){
                 positionActuelle=0;
                 positionFinal = positionFinal - 40;
-                listeJoueur[0].peutAcheter=true;
-                listeJoueur[0].argent= listeJoueur[0].argent + 200;
+                listeJoueur[i].peutAcheter=true;
+                listeJoueur[i].argent= listeJoueur[i].argent + 200;
+                console.log("le joueur "+listeJoueur[i].joueur+" a gagné 200!")
                 mettreAjourMonnaie();
                 
             }
@@ -56,7 +57,7 @@ function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la cou
         boll=false;
         
         if(positionActuelle <= positionFinal){
-            setTimeout("deplacement()",1);
+            setTimeout("deplacement()",10);
         }else{
             boll=true;
         }

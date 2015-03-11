@@ -3,9 +3,42 @@ img{
     zoom : 40%;
 
 }
-#JetonBleu,#JetonVert, #JetonRouge, #JetonJaune{
+#JetonBleu{
     position: absolute;
     top:20%;
+    left: 20%;
+    margin-left: 20%;
+    z-index:1000; 
+    border : none;
+    height:30px;
+    width:30px;
+    
+}
+#JetonVert{
+    position: absolute;
+    top:40%;
+    left: 20%;
+    margin-left: 20%;
+    z-index:1000; 
+    border : none;
+    height:30px;
+    width:30px;
+    
+}
+#JetonRouge{
+    position: absolute;
+    top:60%;
+    left: 20%;
+    margin-left: 20%;
+    z-index:1000; 
+    border : none;
+    height:30px;
+    width:30px;
+    
+}
+#JetonJaune{
+    position: absolute;
+    top:80%;
     left: 20%;
     margin-left: 20%;
     z-index:1000; 

@@ -1,11 +1,12 @@
-var joueurActuel; 
+
 var listeJoueur = [{joueur:"j1",id:"JetonBleu",argent:1500,peutAcheter:false },
                    {joueur:"j2",id:"JetonJaune",argent:1500,peutAcheter:false },
                    {joueur:"j3",id:"JetonVert",argent:1500,peutAcheter:false },
-                   {joueur:"j4",id:"JetonRouge",argent:1000,peutAcheter:false }
+                   {joueur:"j4",id:"JetonRouge",argent:1500,peutAcheter:false }
 					
 ];
-
+var joueurActuel = listeJoueur[0].id; 
+var i =0;
 $(document).ready(function(){
     $("img").each(function(i){
         if($(this).attr('id')==='img_centre'){
@@ -44,33 +45,23 @@ function mettreAjourMonnaie(){
 }
 
 function partie(){
-    var i=0;
-    joueurActuel = listeJoueur[i].id;
     mettreAjourMonnaie();
     switch(joueurActuel){
         case "JetonBleu":
-            alert(joueurActuel);
             i++;
             joueurActuel = listeJoueur[i].id;
-            alert(joueurActuel);
         break;
         case "JetonJaune":
-            alert(joueurActuel);
             i++;
             joueurActuel = listeJoueur[i].id;
-            alert(joueurActuel);
         break;
         case "JetonVert":
-            alert(joueurActuel);
             i++;
             joueurActuel = listeJoueur[i].id;
-            alert(joueurActuel);
         break;
         case "JetonRouge":
-            alert(joueurActuel);
             i=0;
             joueurActuel = listeJoueur[i].id;
-            alert(joueurActuel);
         break;
         default:
         break;
