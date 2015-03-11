@@ -20,3 +20,11 @@ $(document).ready(function(){
 	}); 
     
 });
+
+
+$(document).ready(function debutDePartie(){
+    $('#j'+1).css({color:"blue"});
+    $('#j'+2).css({color:"magenta"});
+    $('#j'+3).css({color:"green"});
+    $('#j'+4).css({color:"red"});    
+});

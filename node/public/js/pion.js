@@ -25,25 +25,15 @@ function Pion(color, joueur,img) {
 	}
 
 }
-/*
-function deplacement(jeton, sommeDes){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
-        
-       
-        var positionActuelle = $('#'+jeton).parent().attr('id');
-        positionActuelle = parseInt(positionActuelle);
-        var positionFinal = positionActuelle+sommeDes;
-        while(positionActuelle <= positionFinal){
-            if(positionActuelle==40){
-                positionActuelle=0;
-                positionFinal = positionFinal - 40;
-            }
-            var ouSeDeplacer = '#'+(positionActuelle);
-            var jetonPositionDepart = $('#'+jeton);
-            $('#'+jeton).clone().appendTo(ouSeDeplacer);
-            jetonPositionDepart.remove();
-            positionActuelle++;
-        }    
-}*/
+
+var jeton = {joueur:"",id:"",argent:"",peutAcheter:false }; 
+function joueur(joueur){
+    jeton.id = joueur;
+}
+
+
+
+
 var positionActuelle;
 var positionFinal;
 var ouSeDeplacer;
@@ -51,39 +41,32 @@ var jetonPositionDepart;
 var boll = true;
 
 function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
-    
-       
-    
-        positionActuelle = $('#JetonBleu').parent().attr('id');
+        positionActuelle = $('#'+jeton.id).parent().attr('id');
         positionActuelle = parseInt(positionActuelle)+1;
-console.log(positionActuelle);
-    if(boll==true)
-        positionFinal = positionActuelle-1+sommeDesDes;
-console.log(positionFinal);
-console.log(ouSeDeplacer);
-       if(positionActuelle==40){
-            positionActuelle=0;
-            positionFinal = positionFinal - 40;
-        }
-    
+        if(boll==true)
+            positionFinal = positionActuelle-1+sommeDesDes;
+            if(positionActuelle==40){
+                positionActuelle=0;
+                positionFinal = positionFinal - 40;
+                jeton.peutAcheter=true;
+                alert(jeton.peutAcheter);
+            }
         ouSeDeplacer = '#'+(positionActuelle);
-        jetonPositionDepart = $('#JetonBleu');
-        $('#JetonBleu').clone().appendTo(ouSeDeplacer);
+        jetonPositionDepart = $('#'+jeton.id);
+        $('#'+jeton.id).clone().appendTo(ouSeDeplacer);
         jetonPositionDepart.remove();
         positionActuelle++;
-    boll=false;
+        boll=false;
         
         if(positionActuelle <= positionFinal){
             setTimeout("deplacement()",1000);
         }else{
             boll=true;
         }
-        
 
-        
-      
-    
 }
+
+
 
     
 
