@@ -1,3 +1,10 @@
+var joueurActuel; 
+var listeJoueur = [{joueur:"j1",id:"JetonBleu",argent:1500,peutAcheter:false },
+                   {joueur:"j2",id:"JetonJaune",argent:1500,peutAcheter:false },
+                   {joueur:"j3",id:"JetonVert",argent:1500,peutAcheter:false },
+                   {joueur:"j4",id:"JetonRouge",argent:1000,peutAcheter:false }
+					
+];
 
 $(document).ready(function(){
     $("img").each(function(i){
@@ -28,3 +35,49 @@ $(document).ready(function debutDePartie(){
     $('#j'+3).css({color:"green"});
     $('#j'+4).css({color:"red"});    
 });
+
+function mettreAjourMonnaie(){
+    var i;
+    for(i=0;i<listeJoueur.length;i++){
+        $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
+    }
+}
+
+function partie(){
+    var i=0;
+    joueurActuel = listeJoueur[i].id;
+    mettreAjourMonnaie();
+    switch(joueurActuel){
+        case "JetonBleu":
+            alert(joueurActuel);
+            i++;
+            joueurActuel = listeJoueur[i].id;
+            alert(joueurActuel);
+        break;
+        case "JetonJaune":
+            alert(joueurActuel);
+            i++;
+            joueurActuel = listeJoueur[i].id;
+            alert(joueurActuel);
+        break;
+        case "JetonVert":
+            alert(joueurActuel);
+            i++;
+            joueurActuel = listeJoueur[i].id;
+            alert(joueurActuel);
+        break;
+        case "JetonRouge":
+            alert(joueurActuel);
+            i=0;
+            joueurActuel = listeJoueur[i].id;
+            alert(joueurActuel);
+        break;
+        default:
+        break;
+    }
+        
+        if(listeJoueur[i].peutAcheter){
+        
+    }
+   
+}
