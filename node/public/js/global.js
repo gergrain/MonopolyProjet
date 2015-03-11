@@ -44,22 +44,47 @@ function mettreAjourMonnaie(){
     }
 }
 
+function allerEnPrison(){
+    if($('#'+joueurActuel).parent().attr('id')==30){ //Cas ou l'on passe sur GoToJail
+        ouSeDeplacer = '#10';
+        jetonPositionDepart = $('#'+joueurActuel);
+        $('#'+joueurActuel).clone().appendTo(ouSeDeplacer);
+        jetonPositionDepart.remove();
+    }
+}
+
 function partie(){
     mettreAjourMonnaie();
     switch(joueurActuel){
         case "JetonBleu":
+            allerEnPrison();
+            if(listeJoueur[i].peutAcheter){
+                
+            }
             i++;
             joueurActuel = listeJoueur[i].id;
         break;
         case "JetonJaune":
+            allerEnPrison();
+            if(listeJoueur[i].peutAcheter){
+        
+            }
             i++;
             joueurActuel = listeJoueur[i].id;
         break;
         case "JetonVert":
+            allerEnPrison();
+            if(listeJoueur[i].peutAcheter){
+        
+            }
             i++;
             joueurActuel = listeJoueur[i].id;
         break;
         case "JetonRouge":
+            allerEnPrison();
+            if(listeJoueur[i].peutAcheter){
+        
+            }
             i=0;
             joueurActuel = listeJoueur[i].id;
         break;
@@ -67,8 +92,6 @@ function partie(){
         break;
     }
         
-        if(listeJoueur[i].peutAcheter){
         
-    }
    
 }
