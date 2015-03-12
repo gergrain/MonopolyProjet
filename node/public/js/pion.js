@@ -36,7 +36,7 @@ var jetonPositionDepart;
 var boll = true;
 
 function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
-        positionActuelle = $('#'+joueurActuel).parent().attr('id');
+        positionActuelle = $('#'+listeJoueur[i].id).parent().attr('id');
         positionActuelle = parseInt(positionActuelle)+1;
         if(boll==true)
             positionFinal = positionActuelle-1+sommeDesDes;
@@ -50,8 +50,8 @@ function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la cou
                 
             }
         ouSeDeplacer = '#'+(positionActuelle);
-        jetonPositionDepart = $('#'+joueurActuel);
-        $('#'+joueurActuel).clone().appendTo(ouSeDeplacer);
+        jetonPositionDepart = $('#'+listeJoueur[i].id);
+        $('#'+listeJoueur[i].id).clone().appendTo(ouSeDeplacer);
         jetonPositionDepart.remove();
         positionActuelle++;
         boll=false;

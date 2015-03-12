@@ -5,8 +5,9 @@ var listeJoueur = [{joueur:"j1",id:"JetonBleu",argent:1500,peutAcheter:false },
                    {joueur:"j4",id:"JetonRouge",argent:1500,peutAcheter:false }
 					
 ];
-//Ajouté etat achetable et variable estAchete
-var listeCase = [{numero:'1', nom:'Boulevard de Belleville', prix:60, type:'marron', achetable:true, estAchete:false},
+
+var listeCase = [ {numero:'0', nom:'Départ', prix:200, type:'aucun', achetable:false, estAchete:false},
+                {numero:'1', nom:'Boulevard de Belleville', prix:60, type:'marron', achetable:true, estAchete:false},
                  {numero:'2', nom:'Caisse de Communauté', prix:0, type:'communauté', achetable:false, estAchete:false},
                  {numero:'3', nom:'Rue Lecourbe', prix:60, type:'marron', achetable:true, estAchete:false},
                  {numero:'4', nom:'Impôts sur le revenu', prix:-200, type:'malus', achetable:false, estAchete:false},
@@ -46,7 +47,7 @@ var listeCase = [{numero:'1', nom:'Boulevard de Belleville', prix:60, type:'marr
                  {numero:'38', nom:'Taxe de Luxe', prix:-100, type:'malus', achetable:false, estAchete:false},
                  {numero:'39', nom:'Rue de la Paix', prix:400, type:'bleu marine', achetable:true, estAchete:false}
                 ]
-var joueurActuel = listeJoueur[0].id; 
+
 var i =0;
 $(document).ready(function(){
     $("img").each(function(i){
@@ -86,48 +87,76 @@ function mettreAjourMonnaie(){
 }
 
 function allerEnPrison(){
-    if($('#'+joueurActuel).parent().attr('id')==30){ //Cas ou l'on passe sur GoToJail
+    if($('#'+listeJoueur[i].id).parent().attr('id')==30){ //Cas ou l'on passe sur GoToJail
         ouSeDeplacer = '#10';
-        jetonPositionDepart = $('#'+joueurActuel);
-        $('#'+joueurActuel).clone().appendTo(ouSeDeplacer);
+        jetonPositionDepart = $('#'+listeJoueur[i].id);
+        $('#'+listeJoueur[i].id).clone().appendTo(ouSeDeplacer);
         jetonPositionDepart.remove();
+    }
+}
+
+function caisseDeCommunaute(){
+    //Caisse de communauté
+    if(listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].type=="communauté"){
+       var nbalea=Math.ceil(16*Math.random());
+       var communaute=cartesCommunautee[nbalea].texte;
+        console.log("Caisse de communauté : "+communaute);
+       $('#achat'+listeJoueur[i].joueur).text("Caisse de communauté : "+communaute);
+    }
+}
+
+function chance(){
+    //Chance
+    if(listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].type=="chance"){
+        var nbalea=Math.ceil(16*Math.random());
+        var chance=cartesCommunautee[nbalea].texte;
+        console.log("Chance : "+chance);
+        $('#achat'+listeJoueur[i].joueur).text("Chance : "+chance);
+    }
+            
+}
+
+function voulezVousAcheter(){
+    if(listeJoueur[i].peutAcheter && listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].achetable && listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].estAchete==false){
+       console.log("Voulez vous acheter "+listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].nom);
+       $('#achat'+listeJoueur[i].joueur).text("Voulez vous acheter "+listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].nom);
+    }
+    else{
+        $('#achat'+listeJoueur[i].joueur).text("");
     }
 }
 
 function partie(){
     mettreAjourMonnaie();
-    switch(joueurActuel){
+    switch(listeJoueur[i].id){
         case "JetonBleu":
             allerEnPrison();
-            if(listeJoueur[i].peutAcheter){
-                
-            }
+            voulezVousAcheter();
+            caisseDeCommunaute();
+            chance();
             i++;
-            joueurActuel = listeJoueur[i].id;
+            
         break;
         case "JetonJaune":
             allerEnPrison();
-            if(listeJoueur[i].peutAcheter){
-        
-            }
+            voulezVousAcheter();
+            caisseDeCommunaute();
+            chance();
             i++;
-            joueurActuel = listeJoueur[i].id;
         break;
         case "JetonVert":
             allerEnPrison();
-            if(listeJoueur[i].peutAcheter){
-        
-            }
+            voulezVousAcheter();
+            caisseDeCommunaute();
+            chance();
             i++;
-            joueurActuel = listeJoueur[i].id;
         break;
         case "JetonRouge":
             allerEnPrison();
-            if(listeJoueur[i].peutAcheter){
-        
-            }
+            voulezVousAcheter();
+            caisseDeCommunaute();
+            chance();
             i=0;
-            joueurActuel = listeJoueur[i].id;
         break;
         default:
         break;
