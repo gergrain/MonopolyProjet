@@ -98,20 +98,66 @@ function allerEnPrison(){
 function caisseDeCommunaute(){
     //Caisse de communauté
     if(listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].type=="communauté"){
-       var nbalea=Math.ceil(16*Math.random());
+       var nbalea=Math.ceil(15*Math.random());
+        console.log(nbalea);
        var communaute=cartesCommunautee[nbalea].texte;
         console.log("Caisse de communauté : "+communaute);
-       $('#achat'+listeJoueur[i].joueur).text("Caisse de communauté : "+communaute);
+       $('#caissedecommu'+listeJoueur[i].joueur).text("Caisse de communauté : "+communaute);
+       switch(cartesCommunautee[nbalea].categorie){
+               case "+":
+                    listeJoueur[i].argent=listeJoueur[i].argent+cartesCommunautee[nbalea].cout;                             $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
+               break;
+               case "-":
+                    listeJoueur[i].argent=listeJoueur[i].argent-cartesCommunautee[nbalea].cout;
+                    $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
+               break;
+               case "move":
+               
+               break;
+               case "bonus":
+               break;
+               default:
+               console.log("Mais qui êtes vous ??");
+               break;
+                
+        }
     }
 }
 
 function chance(){
     //Chance
     if(listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].type=="chance"){
-        var nbalea=Math.ceil(16*Math.random());
-        var chance=cartesCommunautee[nbalea].texte;
+        var nbalea=Math.ceil(15*Math.random());
+        console.log(nbalea);
+        var chance=cartesChance[nbalea].texte;
         console.log("Chance : "+chance);
-        $('#achat'+listeJoueur[i].joueur).text("Chance : "+chance);
+        $('#chance'+listeJoueur[i].joueur).text("Chance : "+chance);
+        switch(cartesChance[nbalea].categorie){
+               case "+":
+                console.log("chance argent "+listeJoueur[i].argent);
+                    listeJoueur[i].argent=listeJoueur[i].argent+cartesChance[nbalea].cout;
+                
+                console.log("chance cout "+cartesChance[nbalea].cout);
+                console.log("chance argent "+listeJoueur[i].argent);
+                    $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
+               break;
+               case "-":
+                console.log("chance argent "+listeJoueur[i].argent);
+                    listeJoueur[i].argent=listeJoueur[i].argent-cartesChance[nbalea].cout;
+                   console.log("chance argent "+cartesChance[nbalea].cout);
+                console.log("chance argent "+listeJoueur[i].argent);
+                    $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
+               break;
+               case "move":
+               
+               break;
+               case "bonus":
+               break;
+               default:
+               console.log("Mais qui êtes vous dans la chance ??");
+               break;
+                
+        }
     }
             
 }
@@ -135,7 +181,6 @@ function partie(){
             caisseDeCommunaute();
             chance();
             i++;
-            
         break;
         case "JetonJaune":
             allerEnPrison();
@@ -159,6 +204,7 @@ function partie(){
             i=0;
         break;
         default:
+            console.log("Vous ne devriez pas être la !")
         break;
     }
         
