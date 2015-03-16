@@ -28,7 +28,7 @@
         {id:"6",cout:200,categorie:"+",texte:"Recevez 200€ pour votre remarquable performance de 'Féérie Dansante des Sirènes"},
         {id:"7",cout:100,categorie:"+",texte:"Recevez 100€ pour la sortie de votre 1er disque "},
         {id:"8",cout:500,categorie:"+",texte:"Recevez 500€ de récompense pour l'arrestation de Buford Molosse Tannen"},
-        {id:"9",cout:0,categorie:"move",texte:"Placez vous sur la case 'Départ'"},
+        {id:"9",cout:0,categorie:"move",texte:"Placez vous sur la case 'Départ'",psotion:"0"},
         {id:"10",cout:100,categorie:"-",texte:"Vous faites convertir votre véhicule en aéroglisseur. Payer 100€"},
         {id:"11",cout:250,categorie:"+",texte:"Vous actions TEXACO vous rapportent la somme de 250€"},
         {id:"12",cout:0,categorie:"move",texte:"Retourner à la gare de Hill Valey"},

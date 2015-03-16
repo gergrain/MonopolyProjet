@@ -105,7 +105,7 @@ function caisseDeCommunaute(){
        $('#caissedecommu'+listeJoueur[i].joueur).text("Caisse de communauté : "+communaute);
        switch(cartesCommunautee[nbalea].categorie){
                case "+":
-                    listeJoueur[i].argent=listeJoueur[i].argent+cartesCommunautee[nbalea].cout;                             $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
+                    listeJoueur[i].argent=listeJoueur[i].argent+cartesCommunautee[nbalea].cout;                                                                        $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
                break;
                case "-":
                     listeJoueur[i].argent=listeJoueur[i].argent-cartesCommunautee[nbalea].cout;
@@ -131,7 +131,7 @@ function chance(){
         console.log(nbalea);
         var chance=cartesChance[nbalea].texte;
         console.log("Chance : "+chance);
-        $('#chance'+listeJoueur[i].joueur).text("Chance : "+chance);
+        $('#chance'+listeJoueur[i].joueur).text(" Chance : "+chance);
         switch(cartesChance[nbalea].categorie){
                case "+":
                 console.log("chance argent "+listeJoueur[i].argent);
@@ -149,7 +149,7 @@ function chance(){
                     $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
                break;
                case "move":
-               
+                    
                break;
                case "bonus":
                break;
