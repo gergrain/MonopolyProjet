@@ -1,8 +1,8 @@
 
-var listeJoueur = [{joueur:"j1",id:"JetonBleu",argent:1500,peutAcheter:false },
-                   {joueur:"j2",id:"JetonJaune",argent:1500,peutAcheter:false },
-                   {joueur:"j3",id:"JetonVert",argent:1500,peutAcheter:false },
-                   {joueur:"j4",id:"JetonRouge",argent:1500,peutAcheter:false }
+var listeJoueur = [{joueur:"j1",id:"JetonBleu",argent:1500,peutAcheter:false, estEnPrison:false, free:false},
+                   {joueur:"j2",id:"JetonJaune",argent:1500,peutAcheter:false, estEnPrison:false, free:false },
+                   {joueur:"j3",id:"JetonVert",argent:1500,peutAcheter:false, estEnPrison:false, free:false },
+                   {joueur:"j4",id:"JetonRouge",argent:1500,peutAcheter:false, estEnPrison:false, free:false }
 					
 ];
 
@@ -79,6 +79,10 @@ $(document).ready(function debutDePartie(){
     $('#j'+4).css({color:"red"});    
 });
 
+function mettreTourJoueurEnGras(){
+    $('#tour'+listeJoueur[i].joueur).css({fontWeight: "bold"});
+}
+
 function mettreAjourMonnaie(){
     var i;
     for(i=0;i<listeJoueur.length;i++){
@@ -88,6 +92,7 @@ function mettreAjourMonnaie(){
 
 function allerEnPrison(){
     if($('#'+listeJoueur[i].id).parent().attr('id')==30){ //Cas ou l'on passe sur GoToJail
+        listeJoueur[i].estEnPrison=true;
         ouSeDeplacer = '#10';
         jetonPositionDepart = $('#'+listeJoueur[i].id);
         $('#'+listeJoueur[i].id).clone().appendTo(ouSeDeplacer);
@@ -112,9 +117,18 @@ function caisseDeCommunaute(){
                     $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
                break;
                case "move":
-               
+                    if(cartesCommunautee[nbalea].position==="0"){
+                        allezAudepart();
+                    }
+                    if(cartesCommunautee[nbalea].position==="15"){
+                        gareDeLyon();
+                    }
+                    if(cartesCommunautee[nbalea].id==="15"){
+                        allerEnPrison();
+                    }
                break;
                case "bonus":
+                    listeJoueur[i].free=true;
                break;
                default:
                console.log("Mais qui êtes vous ??");
@@ -149,6 +163,31 @@ function chance(){
                     $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
                break;
                case "move":
+                    switch(cartesChance[nbalea].position){
+                            case "0":
+                                allerAudepart();
+                            break;
+                            case "30":
+                                allerEnPrison();
+                            break;
+                            case "11":
+                                BlvVillette();
+                            break;
+                            case "21":
+                                HenriMartin();
+                            break;
+                            case "15":
+                                gareDeLyon();
+                            break;
+                            case "-3":
+                                moinsTroisCases();
+                            break;
+                            case "39":
+                                rueDelaPaix();
+                            break;
+                            default:
+                                console.log("Mais que faite vous là, c'est réservé au carte chance !")
+                    }
                     
                break;
                case "bonus":
@@ -176,6 +215,7 @@ function partie(){
     mettreAjourMonnaie();
     switch(listeJoueur[i].id){
         case "JetonBleu":
+            mettreTourJoueurEnGras();
             allerEnPrison();
             voulezVousAcheter();
             caisseDeCommunaute();
@@ -183,6 +223,7 @@ function partie(){
             i++;
         break;
         case "JetonJaune":
+            mettreTourJoueurEnGras();
             allerEnPrison();
             voulezVousAcheter();
             caisseDeCommunaute();
@@ -190,6 +231,7 @@ function partie(){
             i++;
         break;
         case "JetonVert":
+            mettreTourJoueurEnGras();
             allerEnPrison();
             voulezVousAcheter();
             caisseDeCommunaute();
@@ -197,6 +239,7 @@ function partie(){
             i++;
         break;
         case "JetonRouge":
+            mettreTourJoueurEnGras();
             allerEnPrison();
             voulezVousAcheter();
             caisseDeCommunaute();
