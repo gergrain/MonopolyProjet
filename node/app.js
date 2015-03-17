@@ -6,7 +6,7 @@ var express         = require('express'),
     http = require('http'),
 	 path = require('path');
 
-
+var io = require('socket.io')(http);
 var sess;
 var app = express();
 
@@ -29,7 +29,11 @@ app.use(session({
     saveUninitialized: true
 }));
 
- 
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
 /* express-handlebars - https://github.com/ericf/express-handlebars
 *  Handlebars : moteur de template pour Express.
 * il va gérer les vues
