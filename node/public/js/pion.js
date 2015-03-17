@@ -26,11 +26,6 @@ function Pion(color, joueur,img) {
 
 }
 
-var jeton = {joueur:"",id:"",argent:"",peutAcheter:false }; 
-function joueur(joueur){
-    jeton.id = joueur;
-}
-
 
 
 
@@ -41,25 +36,28 @@ var jetonPositionDepart;
 var boll = true;
 
 function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
-        positionActuelle = $('#'+jeton.id).parent().attr('id');
+        positionActuelle = $('#'+listeJoueur[i].id).parent().attr('id');
         positionActuelle = parseInt(positionActuelle)+1;
         if(boll==true)
             positionFinal = positionActuelle-1+sommeDesDes;
             if(positionActuelle==40){
                 positionActuelle=0;
                 positionFinal = positionFinal - 40;
-                jeton.peutAcheter=true;
-                alert(jeton.peutAcheter);
+                listeJoueur[i].peutAcheter=true;
+                listeJoueur[i].argent= listeJoueur[i].argent + 200;
+                console.log("le joueur "+listeJoueur[i].joueur+" a gagné 200!")
+                mettreAjourMonnaie();
+                
             }
         ouSeDeplacer = '#'+(positionActuelle);
-        jetonPositionDepart = $('#'+jeton.id);
-        $('#'+jeton.id).clone().appendTo(ouSeDeplacer);
+        jetonPositionDepart = $('#'+listeJoueur[i].id);
+        $('#'+listeJoueur[i].id).clone().appendTo(ouSeDeplacer);
         jetonPositionDepart.remove();
         positionActuelle++;
         boll=false;
         
         if(positionActuelle <= positionFinal){
-            setTimeout("deplacement()",1000);
+            setTimeout("deplacement()",10);
         }else{
             boll=true;
         }

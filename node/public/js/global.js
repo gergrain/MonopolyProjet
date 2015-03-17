@@ -1,4 +1,54 @@
 
+var listeJoueur = [{joueur:"j1",id:"JetonBleu",argent:1500,peutAcheter:false, estEnPrison:false, free:false},
+                   {joueur:"j2",id:"JetonJaune",argent:1500,peutAcheter:false, estEnPrison:false, free:false },
+                   {joueur:"j3",id:"JetonVert",argent:1500,peutAcheter:false, estEnPrison:false, free:false },
+                   {joueur:"j4",id:"JetonRouge",argent:1500,peutAcheter:false, estEnPrison:false, free:false }
+					
+];
+
+var listeCase = [ {numero:'0', nom:'Départ', prix:200, type:'aucun', achetable:false, estAchete:false},
+                {numero:'1', nom:'Boulevard de Belleville', prix:60, type:'marron', achetable:true, estAchete:false},
+                 {numero:'2', nom:'Caisse de Communauté', prix:0, type:'communauté', achetable:false, estAchete:false},
+                 {numero:'3', nom:'Rue Lecourbe', prix:60, type:'marron', achetable:true, estAchete:false},
+                 {numero:'4', nom:'Impôts sur le revenu', prix:-200, type:'malus', achetable:false, estAchete:false},
+                 {numero:'5', nom:'Gare Montparnasse', prix:200, type:'gare', achetable:true, estAchete:false},
+                 {numero:'6', nom:'Rue de Vaugirard', prix:100, type:'bleu ciel', achetable:true, estAchete:false},
+                 {numero:'7', nom:'Chance',prix:0, type:'chance', achetable:false, estAchete:false},
+                 {numero:'8', nom:'Rue de Courcelles', prix:100, type:'bleu ciel', achetable:true, estAchete:false},
+                 {numero:'9', nom:'Avenue de la République', prix:120, type:'bleu ciel', achetable:true, estAchete:false},
+                 {numero:'10', nom:'Prison',prix:0, type:'prison', achetable:false, estAchete:false},
+                 {numero:'11', nom:'Boulevard de la Vilette', prix:140, type:'rose', achetable:true, estAchete:false},
+                 {numero:'12', nom:'Compagnie de distribution d electricité', prix:150, type:'compagnie', achetable:true, estAchete:false},
+                 {numero:'13', nom:'Avenue de Neuilly', prix:140, type:'rose', achetable:true, estAchete:false},
+                 {numero:'14', nom:'Rue de Paradis', prix:160, type:'rose', achetable:true, estAchete:false},
+                 {numero:'15', nom:'Gare de Lyon', prix:200, type:'gare', achetable:true, estAchete:false},
+                 {numero:'16', nom:'Avenue Mozart', prix:180, type:'orange', achetable:true, estAchete:false},
+                 {numero:'17', nom:'Caisse de Communauté',prix:0, type:'communauté', achetable:false, estAchete:false},
+                 {numero:'18', nom:'Boulevard St-Michel', prix:180, type:'orange', achetable:true, estAchete:false},
+                 {numero:'19', nom:'Place Pigalle', prix:200, type:'orange', achetable:true, estAchete:false},
+                 {numero:'20', nom:'Parc Gratuit', prix:0, type:'parc', achetable:false, estAchete:false},
+                 {numero:'21', nom:'Avenue Henri-Martin', prix:240, type:'rouge', achetable:true, estAchete:false},
+                 {numero:'22', nom:'Chance',prix:0, type:'chance', achetable:false, estAchete:false},
+                 {numero:'23', nom:'Boulevard Malesherbes', prix:220, type:'rouge', achetable:true, estAchete:false},
+                 {numero:'24', nom:'Avenue Matignon', prix:220, type:'rouge', achetable:true, estAchete:false},
+                 {numero:'25', nom:'Gare du Nord', prix:200, type:'gare', achetable:true, estAchete:false},
+                 {numero:'26', nom:'Faubourg Saint-Honoré', prix:260, type:'jaune', achetable:true, estAchete:false},
+                 {numero:'27', nom:'Place de la Bourse', prix:260, type:'jaune', achetable:true, estAchete:false},
+                 {numero:'28', nom:'Compagnie de distribution des eaux', prix:150, type:'compagnie', achetable:true, estAchete:false},
+                 {numero:'29', nom:'Rue la Fayette', prix:280, type:'jaune', achetable:true, estAchete:false},
+                 {numero:'30', nom:'Allez en prison',prix:0, type:'prison', achetable:false, estAchete:false},
+                 {numero:'31', nom:'Avenue de Breteuil', prix:300, type:'vert', achetable:true, estAchete:false},
+                 {numero:'32', nom:'Avenue Foch', prix:300, type:'vert', achetable:true, estAchete:false},
+                 {numero:'33', nom:'Caisse de communauté',prix:0, type:'communauté', achetable:false, estAchete:false},
+                 {numero:'34', nom:'Boulevard des capucines', prix:320, type:'vert', achetable:true, estAchete:false},
+                 {numero:'35', nom:'Gare Saint-Lazare', prix:200, type:'gare', achetable:true, estAchete:false},
+                 {numero:'36', nom:'Chance',prix:0, type:'chance', achetable:false, estAchete:false},
+                 {numero:'37', nom:'Avenue des Champs-Elysées', prix:350, type:'bleu marine', achetable:true, estAchete:false},
+                 {numero:'38', nom:'Taxe de Luxe', prix:-100, type:'malus', achetable:false, estAchete:false},
+                 {numero:'39', nom:'Rue de la Paix', prix:400, type:'bleu marine', achetable:true, estAchete:false}
+                ]
+
+var i =0;
 $(document).ready(function(){
     $("img").each(function(i){
         if($(this).attr('id')==='img_centre'){
@@ -28,3 +78,179 @@ $(document).ready(function debutDePartie(){
     $('#j'+3).css({color:"green"});
     $('#j'+4).css({color:"red"});    
 });
+
+function mettreTourJoueurEnGras(){
+    $('#tour'+listeJoueur[i].joueur).css({fontWeight: "bold"});
+}
+
+function mettreAjourMonnaie(){
+    var i;
+    for(i=0;i<listeJoueur.length;i++){
+        $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
+    }
+}
+
+function allerEnPrison(){
+    if($('#'+listeJoueur[i].id).parent().attr('id')==30){ //Cas ou l'on passe sur GoToJail
+        listeJoueur[i].estEnPrison=true;
+        ouSeDeplacer = '#10';
+        jetonPositionDepart = $('#'+listeJoueur[i].id);
+        $('#'+listeJoueur[i].id).clone().appendTo(ouSeDeplacer);
+        jetonPositionDepart.remove();
+    }
+}
+
+function caisseDeCommunaute(){
+    //Caisse de communauté
+    if(listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].type=="communauté"){
+       var nbalea=Math.ceil(15*Math.random());
+        console.log(nbalea);
+       var communaute=cartesCommunautee[nbalea].texte;
+        console.log("Caisse de communauté : "+communaute);
+       $('#caissedecommu'+listeJoueur[i].joueur).text("Caisse de communauté : "+communaute);
+       switch(cartesCommunautee[nbalea].categorie){
+               case "+":
+                    listeJoueur[i].argent=listeJoueur[i].argent+cartesCommunautee[nbalea].cout;                                                                        $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
+               break;
+               case "-":
+                    listeJoueur[i].argent=listeJoueur[i].argent-cartesCommunautee[nbalea].cout;
+                    $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
+               break;
+               case "move":
+                    if(cartesCommunautee[nbalea].position==="0"){
+                        allezAudepart();
+                    }
+                    if(cartesCommunautee[nbalea].position==="15"){
+                        gareDeLyon();
+                    }
+                    if(cartesCommunautee[nbalea].id==="15"){
+                        allerEnPrison();
+                    }
+               break;
+               case "bonus":
+                    listeJoueur[i].free=true;
+               break;
+               default:
+               console.log("Mais qui êtes vous ??");
+               break;
+                
+        }
+    }
+}
+
+function chance(){
+    //Chance
+    if(listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].type=="chance"){
+        var nbalea=Math.ceil(15*Math.random());
+        console.log(nbalea);
+        var chance=cartesChance[nbalea].texte;
+        console.log("Chance : "+chance);
+        $('#chance'+listeJoueur[i].joueur).text(" Chance : "+chance);
+        switch(cartesChance[nbalea].categorie){
+               case "+":
+                console.log("chance argent "+listeJoueur[i].argent);
+                    listeJoueur[i].argent=listeJoueur[i].argent+cartesChance[nbalea].cout;
+                
+                console.log("chance cout "+cartesChance[nbalea].cout);
+                console.log("chance argent "+listeJoueur[i].argent);
+                    $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
+               break;
+               case "-":
+                console.log("chance argent "+listeJoueur[i].argent);
+                    listeJoueur[i].argent=listeJoueur[i].argent-cartesChance[nbalea].cout;
+                   console.log("chance argent "+cartesChance[nbalea].cout);
+                console.log("chance argent "+listeJoueur[i].argent);
+                    $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
+               break;
+               case "move":
+                    switch(cartesChance[nbalea].position){
+                            case "0":
+                                allerAudepart();
+                            break;
+                            case "30":
+                                allerEnPrison();
+                            break;
+                            case "11":
+                                BlvVillette();
+                            break;
+                            case "21":
+                                HenriMartin();
+                            break;
+                            case "15":
+                                gareDeLyon();
+                            break;
+                            case "-3":
+                                moinsTroisCases();
+                            break;
+                            case "39":
+                                rueDelaPaix();
+                            break;
+                            default:
+                                console.log("Mais que faite vous là, c'est réservé au carte chance !")
+                    }
+                    
+               break;
+               case "bonus":
+               break;
+               default:
+               console.log("Mais qui êtes vous dans la chance ??");
+               break;
+                
+        }
+    }
+            
+}
+
+function voulezVousAcheter(){
+    if(listeJoueur[i].peutAcheter && listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].achetable && listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].estAchete==false){
+       console.log("Voulez vous acheter "+listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].nom);
+       $('#achat'+listeJoueur[i].joueur).text("Voulez vous acheter "+listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].nom);
+    }
+    else{
+        $('#achat'+listeJoueur[i].joueur).text("");
+    }
+}
+
+function partie(){
+    mettreAjourMonnaie();
+    switch(listeJoueur[i].id){
+        case "JetonBleu":
+            mettreTourJoueurEnGras();
+            allerEnPrison();
+            voulezVousAcheter();
+            caisseDeCommunaute();
+            chance();
+            i++;
+        break;
+        case "JetonJaune":
+            mettreTourJoueurEnGras();
+            allerEnPrison();
+            voulezVousAcheter();
+            caisseDeCommunaute();
+            chance();
+            i++;
+        break;
+        case "JetonVert":
+            mettreTourJoueurEnGras();
+            allerEnPrison();
+            voulezVousAcheter();
+            caisseDeCommunaute();
+            chance();
+            i++;
+        break;
+        case "JetonRouge":
+            mettreTourJoueurEnGras();
+            allerEnPrison();
+            voulezVousAcheter();
+            caisseDeCommunaute();
+            chance();
+            i=0;
+        break;
+        default:
+            console.log("Vous ne devriez pas être la !")
+        break;
+    }
+        
+        
+   
+}
