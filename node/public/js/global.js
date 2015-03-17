@@ -210,6 +210,7 @@ function voulezVousAcheter(){
     }
     else{
         $('#achat'+listeJoueur[i].joueur).text("");
+        paye();
     }
 }
 
@@ -262,7 +263,7 @@ function parcGratuit(){
 }
 
 function paye(){
-    if(listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].estAchete==true && listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].aAchete==listeJoueur[i].id){
+    if(listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].estAchete==true){
         console.log("10% du prix : "+10/100*listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].prix);
         listeJoueur[i].argent=listeJoueur[i].argent-(10/100*listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].prix);
         $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);

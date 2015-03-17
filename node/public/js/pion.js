@@ -66,7 +66,6 @@ function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la cou
             caisseDeCommunaute();
             taxe();
             parcGratuit();
-            paye();
             chance();
                 if(i>=3){
                     i=0;
