@@ -34,7 +34,7 @@
         {id:"12",cout:0,categorie:"move",texte:"Retourner à la gare de Lyon",position:"15"},
         {id:"13",cout:500,categorie:"-",texte:"Payez votre cure de rajeunissement à la clinique 500€"},
         {id:"14",cout:0,categorie:"bonus",texte:"Vous êtes libéeé de prison."},
-        {id:"15",cout:0,categorie:"move",texte:"Allez en prison."},
+        {id:"15",cout:0,categorie:"move",texte:"Allez en prison.",position:"30"},
         {id:"16",cout:100,categorie:"-",texte:"Biff vous fait chanter : Payez 100€"}
                             ];
 					

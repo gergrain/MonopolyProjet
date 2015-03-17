@@ -81,6 +81,7 @@ $(document).ready(function debutDePartie(){
 
 function mettreTourJoueurEnGras(){
     $('#tour'+listeJoueur[i].joueur).css({fontWeight: "bold"});
+    
 }
 
 function mettreAjourMonnaie(){
@@ -123,7 +124,7 @@ function caisseDeCommunaute(){
                     if(cartesCommunautee[nbalea].position==="15"){
                         gareDeLyon();
                     }
-                    if(cartesCommunautee[nbalea].id==="15"){
+                    if(cartesCommunautee[nbalea].position==="30"){
                         allerEnPrison();
                     }
                break;
@@ -144,15 +145,11 @@ function chance(){
         var nbalea=Math.ceil(15*Math.random());
         console.log(nbalea);
         var chance=cartesChance[nbalea].texte;
-        console.log("Chance : "+chance);
+        //console.log("Chance : "+chance);
         $('#chance'+listeJoueur[i].joueur).text(" Chance : "+chance);
         switch(cartesChance[nbalea].categorie){
                case "+":
-                console.log("chance argent "+listeJoueur[i].argent);
                     listeJoueur[i].argent=listeJoueur[i].argent+cartesChance[nbalea].cout;
-                
-                console.log("chance cout "+cartesChance[nbalea].cout);
-                console.log("chance argent "+listeJoueur[i].argent);
                     $('#monnaie'+listeJoueur[i].joueur).text(listeJoueur[i].argent);
                break;
                case "-":
@@ -191,6 +188,7 @@ function chance(){
                     
                break;
                case "bonus":
+                    listeJoueur[i].free=true;
                break;
                default:
                console.log("Mais qui êtes vous dans la chance ??");
@@ -203,24 +201,25 @@ function chance(){
 
 function voulezVousAcheter(){
     if(listeJoueur[i].peutAcheter && listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].achetable && listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].estAchete==false){
-       console.log("Voulez vous acheter "+listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].nom);
-       $('#achat'+listeJoueur[i].joueur).text("Voulez vous acheter "+listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].nom);
+        console.log("Voulez vous acheter "+listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].nom);
+        $('#achat'+listeJoueur[i].joueur).html("Voulez vous acheter "+listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].nom+" <input onclick=\"acheter()\" type=\"button\" value=\"Oui\"/> <input type=\"button\" value=\"Non\"/>");
+
     }
     else{
         $('#achat'+listeJoueur[i].joueur).text("");
     }
 }
 
-function partie(){
+function acheter(){
+    $('#acheter'+listeJoueur[i].joueur).after("coucou ");
+}
+/*function partie(){
     mettreAjourMonnaie();
     switch(listeJoueur[i].id){
         case "JetonBleu":
             mettreTourJoueurEnGras();
-            allerEnPrison();
-            voulezVousAcheter();
-            caisseDeCommunaute();
-            chance();
-            i++;
+            
+           // i++;
         break;
         case "JetonJaune":
             mettreTourJoueurEnGras();
@@ -228,7 +227,7 @@ function partie(){
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
-            i++;
+           // i++;
         break;
         case "JetonVert":
             mettreTourJoueurEnGras();
@@ -236,7 +235,7 @@ function partie(){
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
-            i++;
+           // i++;
         break;
         case "JetonRouge":
             mettreTourJoueurEnGras();
@@ -244,7 +243,7 @@ function partie(){
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
-            i=0;
+           // i=0;
         break;
         default:
             console.log("Vous ne devriez pas être la !")
@@ -253,4 +252,4 @@ function partie(){
         
         
    
-}
+}*/
