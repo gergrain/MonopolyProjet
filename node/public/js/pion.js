@@ -38,7 +38,6 @@ var boll = true;
 function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la couleur du jeton
   
         positionActuelle = $('#'+listeJoueur[i].id).parent().attr('id');
-    console.log(i+" valeur de i");
         positionActuelle = parseInt(positionActuelle)+1;
         if(boll==true)
             positionFinal = positionActuelle-1+sommeDesDes;
@@ -65,6 +64,9 @@ function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la cou
             allerEnPrison();
             voulezVousAcheter();
             caisseDeCommunaute();
+            taxe();
+            parcGratuit();
+            paye();
             chance();
                 if(i>=3){
                     i=0;
