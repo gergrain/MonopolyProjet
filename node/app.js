@@ -1,15 +1,18 @@
-var express         = require('express'),
-    session         = require('express-session'),
+var express         = require('express'),app = express(),
+    server = require('http').createServer(app),
     cookieParser    = require('cookie-parser'),
-    bodyParser      = require('body-parser'), //pour récupérer les résultats des post
+    bodyParser      = require('body-parser'),
+	io = require('socket.io').listen(server),
     handlebars  	  = require('express-handlebars'), hbs, 
     http = require('http'),
 	 path = require('path');
+	fs = require('fs');
 
-var io = require('socket.io')(http);
-var sess;
-var app = express();
 
+
+app.get('/', function (req, res) {
+  res.sendFile(__dirname +'/index.html');
+});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('port', 6900);
 app.set('views', path.join(__dirname, 'views'));
@@ -22,16 +25,28 @@ app.use('/bootstrap',express.static(path.join(__dirname+ '/public/bootstrap')));
 
 app.use(cookieParser());
 
-app.use(session({
-    secret: 'nC0@#1pM/-0qA1+é',
-    name: 'Betisier',
-    resave: true,
-    saveUninitialized: true
-}));
+var joueur = [{'nom':null},{'jeton':false}];
+var tabJoueur =[joueur,joueur,joueur,joueur]
+io.sockets.on('connection', function (socket,pseudo) {
+	console.log("Quelqu'un s'est connecté");
+    // Dès qu'on nous donne un pseudo, on le stocke en variable de session et on informe les autres personnes
+	if(tabJoueur[0].nom==null||tabJoueur[1].nom==null||tabJoueur[2].nom==null||tabJoueur[3].nom==null){
+		console.log("ça passe");
+		socket.on('nouveauJoueur', function(pseudo) {
+			if(tabJoueur[0].nom==null){
+				tabJoueur[0].jeton=true;
+			}
+			tabJoueur[0].nom==pseudo;
+			socket.tabJoueur = pseudo;
+			
+			//socket.broadcast.emit('nouveau_client', pseudo);
+		});
+		socket.on('EnvoieVariable', function(variable) {
+			console.log("ça passe pour le get");
+			socket.broadcast.emit('SetVariable', variable);
 
-
-io.on('connection', function(socket){
-  console.log('a user connected');
+		});
+	}
 });
 
 /* express-handlebars - https://github.com/ericf/express-handlebars
@@ -41,15 +56,5 @@ io.on('connection', function(socket){
 hbs = handlebars.create({
    defaultLayout: 'main', // nom de la page par defaut ici main.handlebars (structure de base HTML)
 });
- 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-
-// chargement du routeur
-require('./router/router')(app); 
-
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Serveur Node.js en attente sur le port ' + app.get('port'));
-});
-
+ server.listen(6900);
+console.log("Serveur lancé sur le port : 6900")
