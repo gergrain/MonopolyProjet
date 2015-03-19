@@ -67,10 +67,13 @@ function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la cou
             taxe();
             parcGratuit();
             chance();
+			var dico = getVariablesGlobale();
+			socket.emit('EnvoieVariable', dico);
                 if(i>=3){
                     i=0;
                 }else{
-                    i++; //changement de joueur    
+                    i++; //changement de joueur  
+					
                 }
             
         }

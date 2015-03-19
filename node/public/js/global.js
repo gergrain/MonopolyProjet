@@ -1,4 +1,54 @@
+var socket = io.connect('http://localhost:6900');
+socket.on('SetVariable', function(data) {
+                setVariablesGlobale(data);
+                afficherAdversaire();
+	console.log(data);
+    
+    $("#de1").attr('disabled', 'disabled');
+    $("#de2").attr('disabled', 'disabled');
+ })
 
+var joueurADeplacer;
+var positionFinalJoueur;
+var sommeDes;
+function getVariablesGlobale(){
+    $("#de1").attr('disabled', null);
+    $("#de2").attr('disabled', null);
+    var dictionnaireDonnee = [{'listeJoueur': listeJoueur},
+                              {'listeCase':listeCase},
+                              {'i':i},
+                              {'positionActuelle':positionActuelle},
+                              {'positionFinal':positionFinal},
+                              {'ouSeDeplacer':ouSeDeplacer},
+                              {'jetonPositionDepart':jetonPositionDepart},{'joueur':'#'+listeJoueur[i].id},
+                              {'positionFinalJoueur': '#'},{'sommeDesDes':sommeDesDes}
+                              ];
+	console.log(dictionnaireDonnee);
+    return dictionnaireDonnee;
+}
+
+function setVariablesGlobale(dictionnaireDonnee){
+    listeJoueur = dictionnaireDonnee[0].listeJoueur;
+    listeCase = dictionnaireDonnee[1].listeCase;
+    i = dictionnaireDonnee[2].i;
+    positionActuelle = dictionnaireDonnee[3].positionActuelle;
+    positionFinal = dictionnaireDonnee[4].positionFinal;
+    ouSeDeplacer = dictionnaireDonnee[5].ouSeDeplacer;
+    jetonPositionDepart = dictionnaireDonnee[6].jetonPositionDepart;
+	joueurADeplacer = dictionnaireDonnee[7].joueur;    
+    positionFinalJoueur = dictionnaireDonnee[8].positionFinalJoueur;
+    sommeDes = dictionnaireDonnee[9].sommeDesDes;
+
+}
+
+
+function afficherAdversaire(){
+   var jetonPositionDe = $(joueurADeplacer);
+   var posFinal = $('#'+listeJoueur[i].id).parent().attr('id')-1+sommeDes;
+   posFinal = posFinal +1;
+    $(joueurADeplacer).clone().appendTo('#'+posFinal);
+    jetonPositionDe.remove();
+}
 var listeJoueur = [{joueur:"j1",id:"JetonBleu",argent:1500,peutAcheter:false, estEnPrison:false, free:false},
                    {joueur:"j2",id:"JetonJaune",argent:1500,peutAcheter:false, estEnPrison:false, free:false },
                    {joueur:"j3",id:"JetonVert",argent:1500,peutAcheter:false, estEnPrison:false, free:false },
