@@ -62,6 +62,13 @@ function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la cou
         }else{
             boll=true;
             
+            mettreTourJoueurEnGras();
+            allerEnPrison();
+            voulezVousAcheter();
+            caisseDeCommunaute();
+            chance();
+			taxe();
+            parcGratuit();
         }
 
 }

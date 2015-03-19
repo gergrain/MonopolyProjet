@@ -4,16 +4,12 @@ socket.on('SetVariable', function(data) {
                 afficherAdversaire();
 	console.log(data);
     
-    $("#de1").attr('disabled', 'disabled');
-    $("#de2").attr('disabled', 'disabled');
  })
 
 var joueurADeplacer;
 var positionFinalJoueur;
 var sommeDes;
 function getVariablesGlobale(){
-    $("#de1").attr('disabled', null);
-    $("#de2").attr('disabled', null);
     var dictionnaireDonnee = [{'listeJoueur': listeJoueur},
                               {'listeCase':listeCase},
                               {'i':i},
@@ -123,10 +119,10 @@ $(document).ready(function(){
 
 
 $(document).ready(function debutDePartie(){
-    $('#j'+1).css({color:"magenta"});
-    $('#j'+2).css({color:"green"});
-    $('#j'+3).css({color:"red"});
-    $('#j'+4).css({color:"blue"});    
+    $('#j'+1).css({color:"blue"});
+    $('#j'+2).css({color:"magenta"});
+    $('#j'+3).css({color:"green"});
+    $('#j'+4).css({color:"red"});    
 });
 
 function mettreTourJoueurEnGras(){
@@ -321,56 +317,62 @@ function paye(){
     }
 }
 function partie(){
+    if(i == 3){
+        i = 0;
+    }else{
+        i++;
+    }
+    
     mettreAjourMonnaie();
     switch(listeJoueur[i].id){
         case "JetonBleu":
-            mettreTourJoueurEnGras();
+          /*  mettreTourJoueurEnGras();
             allerEnPrison();
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
 			taxe();
-            parcGratuit();
-			i++;
+            parcGratuit();*/
+			//i++;
 			var dico = getVariablesGlobale();
 			socket.emit('EnvoieVariable', dico);
            	
         break;
         case "JetonJaune":
-            mettreTourJoueurEnGras();
+           /* mettreTourJoueurEnGras();
             allerEnPrison();
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
 			taxe();
-            parcGratuit();
-			i++;
+            parcGratuit();*/
+			//i++;
 			var dico = getVariablesGlobale();
 			socket.emit('EnvoieVariable', dico);
             
         break;
         case "JetonVert":
-            mettreTourJoueurEnGras();
+           /* mettreTourJoueurEnGras();
             allerEnPrison();
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
 			taxe();
-            parcGratuit();
-			i++;
+            parcGratuit();*/
+			//i++;
 			var dico = getVariablesGlobale();
 			socket.emit('EnvoieVariable', dico);
             
         break;
         case "JetonRouge":
-            mettreTourJoueurEnGras();
+           /* mettreTourJoueurEnGras();
             allerEnPrison();
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
 			taxe();
-            parcGratuit();
-			i=0;
+            parcGratuit();*/
+			//i=0;
 			var dico = getVariablesGlobale();
 			socket.emit('EnvoieVariable', dico);
             
