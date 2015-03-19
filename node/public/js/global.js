@@ -4,16 +4,16 @@ socket.on('SetVariable', function(data) {
                 afficherAdversaire();
 	console.log(data);
     
-    $("#de1").attr('disabled', 'disabled');
-    $("#de2").attr('disabled', 'disabled');
+ //   $("#de1").attr('disabled', 'disabled');
+ //   $("#de2").attr('disabled', 'disabled');
  })
 
 var joueurADeplacer;
 var positionFinalJoueur;
 var sommeDes;
 function getVariablesGlobale(){
-    $("#de1").attr('disabled', null);
-    $("#de2").attr('disabled', null);
+  //  $("#de1").attr('disabled', null);
+  //  $("#de2").attr('disabled', null);
     var dictionnaireDonnee = [{'listeJoueur': listeJoueur},
                               {'listeCase':listeCase},
                               {'i':i},
@@ -51,7 +51,7 @@ function afficherAdversaire(){
 }
 var listeJoueur = [{joueur:"j1",id:"JetonBleu",argent:1500,peutAcheter:false, estEnPrison:false, free:false},
                    {joueur:"j2",id:"JetonJaune",argent:1500,peutAcheter:false, estEnPrison:false, free:false },
-                   {joueur:"j3",id:"JetonVert",argent:1500,peutAcheter:false, estEnPrison:false, free:false },
+                   {joueur:"j3",id:"JetonVert",argent:15000,peutAcheter:false, estEnPrison:false, free:false },
                    {joueur:"j4",id:"JetonRouge",argent:1500,peutAcheter:false, estEnPrison:false, free:false }
 					
 ];
@@ -123,10 +123,10 @@ $(document).ready(function(){
 
 
 $(document).ready(function debutDePartie(){
-    $('#j'+1).css({color:"magenta"});
-    $('#j'+2).css({color:"green"});
-    $('#j'+3).css({color:"red"});
-    $('#j'+4).css({color:"blue"});    
+    $('#j'+1).css({color:"blue"});
+    $('#j'+2).css({color:"magenta"});
+    $('#j'+3).css({color:"green"});
+    $('#j'+4).css({color:"red"});    
 });
 
 function mettreTourJoueurEnGras(){
@@ -320,21 +320,13 @@ function paye(){
         //$('#monnaie'+listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].aAchete)
     }
 }
-function partie(){
+/*function partie(){
     mettreAjourMonnaie();
     switch(listeJoueur[i].id){
         case "JetonBleu":
             mettreTourJoueurEnGras();
-            allerEnPrison();
-            voulezVousAcheter();
-            caisseDeCommunaute();
-            chance();
-			taxe();
-            parcGratuit();
-			i++;
-			var dico = getVariablesGlobale();
-			socket.emit('EnvoieVariable', dico);
-           	
+            
+           // i++;
         break;
         case "JetonJaune":
             mettreTourJoueurEnGras();
@@ -342,12 +334,7 @@ function partie(){
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
-			taxe();
-            parcGratuit();
-			i++;
-			var dico = getVariablesGlobale();
-			socket.emit('EnvoieVariable', dico);
-            
+           // i++;
         break;
         case "JetonVert":
             mettreTourJoueurEnGras();
@@ -355,12 +342,7 @@ function partie(){
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
-			taxe();
-            parcGratuit();
-			i++;
-			var dico = getVariablesGlobale();
-			socket.emit('EnvoieVariable', dico);
-            
+           // i++;
         break;
         case "JetonRouge":
             mettreTourJoueurEnGras();
@@ -368,12 +350,7 @@ function partie(){
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
-			taxe();
-            parcGratuit();
-			i=0;
-			var dico = getVariablesGlobale();
-			socket.emit('EnvoieVariable', dico);
-            
+           // i=0;
         break;
         default:
             console.log("Vous ne devriez pas être la !")
@@ -382,4 +359,4 @@ function partie(){
         
         
    
-}
+}*/

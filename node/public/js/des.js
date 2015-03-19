@@ -24,11 +24,12 @@ function lancer(){
         $("body").append("<div id='de2' onclick=\"lancer()\" style='position:absolute; visibility:visible; left:300px; top:100px; z-index:999;'><img class='img_zoom_image' src='/images/de_"+dede+".png'/></div>");
     //console.log(de+" + "+dede+" = "+(de+dede));
     sommeDesDes = de+dede;
-    partie();
+   
 	deplacement();
-	    
-
-
+	//partie();
+	console.log("je suis pzassé");
+	var dico = getVariablesGlobale();
+	socket.emit('EnvoieVariable', dico);
  }
 
 
