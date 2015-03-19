@@ -11,7 +11,7 @@ var express         = require('express'),app = express(),
 
 
 app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/index.html');
+  res.sendFile(__dirname +'/index.html');
 });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('port', 6900);
@@ -57,3 +57,4 @@ hbs = handlebars.create({
    defaultLayout: 'main', // nom de la page par defaut ici main.handlebars (structure de base HTML)
 });
  server.listen(6900);
+console.log("Serveur lancé sur le port : 6900")

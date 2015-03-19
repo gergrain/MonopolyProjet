@@ -1,4 +1,4 @@
-function Pion(color, joueur,img) {
+/*function Pion(color, joueur,img) {
 	this.position = 0;
 	this.joueur = joueur;
 	this.pion = img;
@@ -25,9 +25,7 @@ function Pion(color, joueur,img) {
 	}
 
 }
-
-
-
+*/
 
 var positionActuelle;
 var positionFinal;
@@ -61,7 +59,6 @@ function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la cou
             setTimeout("deplacement()",10);
         }else{
             boll=true;
-            
             mettreTourJoueurEnGras();
             allerEnPrison();
             voulezVousAcheter();

@@ -26,9 +26,6 @@ function lancer(){
     sommeDesDes = de+dede;
     partie();
 	deplacement();
-	    
-
-
  }
 
 
