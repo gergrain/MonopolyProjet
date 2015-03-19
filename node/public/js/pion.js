@@ -61,20 +61,6 @@ function deplacement(){ //jeton sous la forme de JetonXxxx Xxxx represent la cou
             setTimeout("deplacement()",10);
         }else{
             boll=true;
-            allerEnPrison();
-            voulezVousAcheter();
-            caisseDeCommunaute();
-            taxe();
-            parcGratuit();
-            chance();
-			var dico = getVariablesGlobale();
-			socket.emit('EnvoieVariable', dico);
-                if(i>=3){
-                    i=0;
-                }else{
-                    i++; //changement de joueur  
-					
-                }
             
         }
 

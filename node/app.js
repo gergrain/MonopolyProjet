@@ -30,7 +30,7 @@ var tabJoueur =[joueur,joueur,joueur,joueur]
 io.sockets.on('connection', function (socket,pseudo) {
 	console.log("Quelqu'un s'est connecté");
     // Dès qu'on nous donne un pseudo, on le stocke en variable de session et on informe les autres personnes
-	/*if(tabJoueur[0].nom==null||tabJoueur[1].nom==null||tabJoueur[2].nom==null||tabJoueur[3].nom==null){
+	if(tabJoueur[0].nom==null||tabJoueur[1].nom==null||tabJoueur[2].nom==null||tabJoueur[3].nom==null){
 		console.log("ça passe");
 		socket.on('nouveauJoueur', function(pseudo) {
 			if(tabJoueur[0].nom==null){
@@ -40,8 +40,7 @@ io.sockets.on('connection', function (socket,pseudo) {
 			socket.tabJoueur = pseudo;
 			
 			//socket.broadcast.emit('nouveau_client', pseudo);
-		});*/
-	
+		});
 		socket.on('EnvoieVariable', function(variable) {
 			console.log("ça passe pour le get");
 			socket.broadcast.emit('SetVariable', variable);

@@ -123,10 +123,10 @@ $(document).ready(function(){
 
 
 $(document).ready(function debutDePartie(){
-    $('#j'+1).css({color:"blue"});
-    $('#j'+2).css({color:"magenta"});
-    $('#j'+3).css({color:"green"});
-    $('#j'+4).css({color:"red"});    
+    $('#j'+1).css({color:"magenta"});
+    $('#j'+2).css({color:"green"});
+    $('#j'+3).css({color:"red"});
+    $('#j'+4).css({color:"blue"});    
 });
 
 function mettreTourJoueurEnGras(){
@@ -320,13 +320,21 @@ function paye(){
         //$('#monnaie'+listeCase[$('#'+listeJoueur[i].id).parent().attr('id')].aAchete)
     }
 }
-/*function partie(){
+function partie(){
     mettreAjourMonnaie();
     switch(listeJoueur[i].id){
         case "JetonBleu":
             mettreTourJoueurEnGras();
-            
-           // i++;
+            allerEnPrison();
+            voulezVousAcheter();
+            caisseDeCommunaute();
+            chance();
+			taxe();
+            parcGratuit();
+			i++;
+			var dico = getVariablesGlobale();
+			socket.emit('EnvoieVariable', dico);
+           	
         break;
         case "JetonJaune":
             mettreTourJoueurEnGras();
@@ -334,7 +342,12 @@ function paye(){
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
-           // i++;
+			taxe();
+            parcGratuit();
+			i++;
+			var dico = getVariablesGlobale();
+			socket.emit('EnvoieVariable', dico);
+            
         break;
         case "JetonVert":
             mettreTourJoueurEnGras();
@@ -342,7 +355,12 @@ function paye(){
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
-           // i++;
+			taxe();
+            parcGratuit();
+			i++;
+			var dico = getVariablesGlobale();
+			socket.emit('EnvoieVariable', dico);
+            
         break;
         case "JetonRouge":
             mettreTourJoueurEnGras();
@@ -350,7 +368,12 @@ function paye(){
             voulezVousAcheter();
             caisseDeCommunaute();
             chance();
-           // i=0;
+			taxe();
+            parcGratuit();
+			i=0;
+			var dico = getVariablesGlobale();
+			socket.emit('EnvoieVariable', dico);
+            
         break;
         default:
             console.log("Vous ne devriez pas être la !")
@@ -359,4 +382,4 @@ function paye(){
         
         
    
-}*/
+}
